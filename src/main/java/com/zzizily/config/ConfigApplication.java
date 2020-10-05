@@ -1,4 +1,4 @@
-package com.fourdreplay.cyclops;
+package com.zzizily.config;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableConfigServer
 @RestController
-public class FourDReplayApplication {
+public class ConfigApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(FourDReplayApplication.class, args);
+    SpringApplication.run(ConfigApplication.class, args);
   }
 
   @GetMapping("/")
