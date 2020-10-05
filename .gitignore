@@ -260,3 +260,5 @@ local.properties
 
 
 log/
+application.pid
+application.port

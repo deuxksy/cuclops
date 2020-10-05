@@ -6,7 +6,7 @@ plugins {
   id 'io.spring.dependency-management' version '1.0.10.RELEASE'
 }
 
-group = 'com.fourdreplay'
+group = 'com.zzizily'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
@@ -26,13 +26,12 @@ wrapper {
 
 dependencies {
   implementation 'org.springframework.cloud:spring-cloud-config-server'
-  implementation 'org.springframework.cloud:spring-cloud-config-client'
   implementation 'org.springframework.boot:spring-boot-starter-jdbc'
 
   // DB
   implementation "org.flywaydb:flyway-core" //db 자동화
   implementation "com.h2database:h2" // 메모리 db 사용
-  implementation "org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16"
+  implementation "org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16" //db 로그
 
   testImplementation('org.springframework.boot:spring-boot-starter-test') {
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
