@@ -1,23 +1,13 @@
-spring:
-  profiles:
-    active: local
-  application:
-    name: FourDReplay-Cyclops
-  output:
-    ansi:
-      enabled: always
-
 server:
   port: 8888
 
 ---
 
 spring:
-  profiles: local
+  profiles:
+    active: jdbc
   cloud:
     config:
       server:
         jdbc:
-          sql:
-        native:
-          default-label: develop
+          sql: SELECT KEY, VALUE FROM  PROPERTIES  where APPLICATION=? and PROFILE=? and LABEL=?

@@ -1,11 +1,6 @@
 spring:
-  profiles:
-    active: local
-
----
-
-spring:
-  profiles: local
+  application:
+    name: cyclops
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     username: "sa"
@@ -17,17 +12,6 @@ spring:
       minimum-idle: 2
       maximum-pool-size: 3
       pool-name: ${spring.application.name}-pool
-
-logging:
-  path: ./log
-  pattern:
-    console: ${CONSOLE_LOG_PATTERN:%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m (%file:%line\) %n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}}
-  level:
-    ROOT: INFO
-    tricycle: DEBUG
-#    org.springframework.boot: INFO
-#    org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener: DEBUG
-#    org.springframework.boot.devtools: DEBUG
-#    org.springframework.web: DEBUG
-#    org.hibernate.SQL: DEBUG
-#    org.hibernate.type.descriptor.sql: TRACE
+  flyway:
+    enabled: true
+    baseline-on-migrate: true

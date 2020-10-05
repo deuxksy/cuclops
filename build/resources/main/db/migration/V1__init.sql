@@ -1,13 +1,16 @@
--- -- login
--- CREATE TABLE users ( username VARCHAR ( 256 ), PASSWORD VARCHAR ( 256 ), enabled BOOLEAN );
---
--- -- role
--- CREATE TABLE authorities ( username VARCHAR ( 256 ), authority VARCHAR ( 256 ) );
---
--- -- 기본 사용자 생성
--- INSERT INTO users ( username, PASSWORD, enabled ) VALUES ( 'user', '{noop}password', TRUE );
--- INSERT INTO users ( username, PASSWORD, enabled ) VALUES ( 'admin', '{bcrypt}$2a$10$wTlP9OtsXoTCVWbF11gn/uA3kjJ8Tj9gWMy0/P7hVNkwhvaYSowN2', TRUE );
---
--- -- 기본 role 생성
--- INSERT INTO authorities ( username, authority ) VALUES ( 'user', 'ROLE_USER' );
--- INSERT INTO authorities ( username, authority ) VALUES ( 'admin', 'ROLE_ADMIN' );
+CREATE TABLE IF NOT EXISTS PROPERTIES (
+  KEY         VARCHAR(2048),
+  VALUE       VARCHAR(4096),
+  APPLICATION VARCHAR(128),
+  PROFILE     VARCHAR(128),
+  LABEL       VARCHAR(128),
+  PRIMARY KEY (`KEY`, `APPLICATION`, `PROFILE`, `LABEL`)
+);
+
+
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE) VALUES ('A1', 'local', 'master', 'k1', '로컬 값');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE) VALUES ('A1', 'local', 'master', 'k2', '로컬 값');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE) VALUES ('A1', 'local', 'branch', 'k3', '로컬 값');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE) VALUES ('A1', 'dev', 'master', 'name', '개발 값');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE) VALUES ('A1', 'stage', 'master', 'name', '스테이징 값');
+INSERT INTO PROPERTIES (APPLICATION, PROFILE, LABEL, KEY, VALUE) VALUES ('A1', 'prod', 'master', 'name', '운영 값');

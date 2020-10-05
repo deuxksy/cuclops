@@ -1,7 +1,9 @@
 plugins {
+  id 'java'
+  id 'application'
+  id "idea"
   id 'org.springframework.boot' version '2.3.4.RELEASE'
   id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-  id 'java'
 }
 
 group = 'com.fourdreplay'
@@ -10,27 +12,32 @@ sourceCompatibility = '11'
 
 repositories {
   mavenCentral()
+  jcenter()
 }
 
 ext {
   set('springCloudVersion', "Hoxton.SR8")
 }
 
-dependencies {
-  implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-  implementation 'org.springframework.cloud:spring-cloud-config-server'
+wrapper {
+  gradleVersion = gradleVersion
+  distributionType = Wrapper.DistributionType.BIN
+}
 
-  implementation "com.zaxxer:HikariCP" // connection pool
+dependencies {
+  implementation 'org.springframework.cloud:spring-cloud-config-server'
+  implementation 'org.springframework.cloud:spring-cloud-config-client'
+  implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+
+  // DB
   implementation "org.flywaydb:flyway-core" //db 자동화
   implementation "com.h2database:h2" // 메모리 db 사용
   implementation "org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16"
 
-  // web enable
-  compileOnly "javax.servlet:jstl"
-  compileOnly "javax.servlet:javax.servlet-api"
   testImplementation('org.springframework.boot:spring-boot-starter-test') {
     exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
   }
+  testRuntimeOnly "com.h2database:h2"
 }
 
 dependencyManagement {
@@ -40,5 +47,6 @@ dependencyManagement {
 }
 
 test {
+  //enabled = false //false 선언 하면 test 무시 하고 넘어감
   useJUnitPlatform()
 }
