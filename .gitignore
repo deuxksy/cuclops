@@ -257,3 +257,5 @@ local.properties
 .scala_dependencies
 .worksheet
 
+
+log/
