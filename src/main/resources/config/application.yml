@@ -15,6 +15,9 @@ spring:
   flyway:
     enabled: true
     baseline-on-migrate: true
+  h2:
+    console:
+      enabled: true
 
 logging:
   file:
