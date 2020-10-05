@@ -1,0 +1,23 @@
+spring:
+  profiles:
+    active: local
+  application:
+    name: FourDReplay-Cyclops
+  output:
+    ansi:
+      enabled: always
+
+server:
+  port: 8888
+
+---
+
+spring:
+  profiles: local
+  cloud:
+    config:
+      server:
+        jdbc:
+          sql:
+        native:
+          default-label: develop

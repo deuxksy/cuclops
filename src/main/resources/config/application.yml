@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: local
+
+---
+
+spring:
+  profiles: local
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    username: "sa"
+    password:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    hikari:
+      connection-timeout: 10000
+      minimum-idle: 2
+      maximum-pool-size: 3
+      pool-name: ${spring.application.name}-pool
+  flyway:
+    enabled: false
+    baseline-on-migrate: true
+
+logging:
+  path: ./log
+  pattern:
+    console: ${CONSOLE_LOG_PATTERN:%clr(%d{${LOG_DATEFORMAT_PATTERN:yyyy-MM-dd HH:mm:ss.SSS}}){faint} %clr(${LOG_LEVEL_PATTERN:%5p}) %clr(${PID:- }){magenta} %clr(---){faint} %clr([%15.15t]){faint} %clr(%-40.40logger{39}){cyan} %clr(:){faint} %m (%file:%line\) %n${LOG_EXCEPTION_CONVERSION_WORD:%wEx}}
+  level:
+    ROOT: INFO
+    tricycle: DEBUG
+#    org.springframework.boot: INFO
+#    org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener: DEBUG
+#    org.springframework.boot.devtools: DEBUG
+#    org.springframework.web: DEBUG
+#    org.hibernate.SQL: DEBUG
+#    org.hibernate.type.descriptor.sql: TRACE
