@@ -1,6 +1,6 @@
 spring:
   application:
-    name: cyclops
+    name: config
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     username: "sa"
