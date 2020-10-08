@@ -1,6 +1,6 @@
-FROM gradle:6.6.1-jre11
+FROM openjdk:11.0.8-jre-slim
 LABEL maintainer="SeokYoung.Kim 'deuxksy@gmail.com'"
 WORKDIR /app
 COPY build/libs/*.jar .
-ENTRYPOINT ["java", "-jar", "/app/*.jar"]
+ENTRYPOINT ["java", "-jar", "/app/zzizily-spring-cloud-config-server-0.0.1-SNAPSHOT.jar"]
 EXPOSE 8888
