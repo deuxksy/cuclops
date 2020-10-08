@@ -23,11 +23,7 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: whoami&& pwd && jar with Gradle
-        run: whoami && pwd && ./gradlew jar && ls -alh && ls -alh ./build
-
-      - name: cp ./build/libs/*-latest.jar /app
-        run: cp ./build/libs/*-latest.jar /app
+      - run: whoami && pwd && ./gradlew jar && ls -alh && ls -alh ./build && ls -alh ./libs
 
       - name: Push to Docker Hub
         uses: docker/build-push-action@v2
