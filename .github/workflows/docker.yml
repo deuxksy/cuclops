@@ -34,4 +34,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           push: true
-          tags: deuxksy/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server
+          tags: deuxksy/zzizily-spring-cloud-config-server:latest
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
