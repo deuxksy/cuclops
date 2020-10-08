@@ -24,7 +24,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: jar with Gradle
-        run: ./gradlew jar
+        run: whoami && pwd && hostname && ./gradlew jar
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
