@@ -34,14 +34,20 @@ gitProperties {
 }
 
 docker {
+  registryCredentials {
+    url = 'https://index.docker.io/v1/'
+    username = System.getenv("DOCKER_REPO_USERNAME")
+    password = System.getenv("DOCKER_REPO_PASSWORD")
+    email = System.getenv("EMAIL")
+  }
 
   springBootApplication {
     baseImage = "openjdk:11.0.8-jre-slim"
     maintainer = "SeokYoung.Kim 'deuxksy@gmail.com'"
     ports = [8888]
     images = [
-            project.group + "/" + applicationName + "/" + project.version,
-            project.group + "/" + applicationName + "/latest"
+      "cromksy/" + applicationName + ":" + project.version,
+      "cromksy/" + applicationName + ":latest"
     ]
 //    jvmArgs = []
 //    mainClassName = ""
