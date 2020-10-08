@@ -35,3 +35,6 @@ jobs:
 #          file: ./Dockerfile
           push: true
           tags: ghcr.io/deuxksy/zzizily-spring-cloud-config-server:latest
+
+      - name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
