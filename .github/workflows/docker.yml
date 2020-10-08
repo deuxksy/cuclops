@@ -23,8 +23,8 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: bootDistZip with Gradle
-        run: ./gradlew bootDistZip
+      - name: jar with Gradle
+        run: ./gradlew jar
 
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v1
