@@ -1,5 +1,8 @@
 FROM openjdk:11.0.8-jre-slim
 LABEL maintainer="SeokYoung.Kim 'deuxksy@gmail.com'"
+RUN whoami && pwd
+RUN ls -alh
+RUN ls -alh /home/runner/work
 WORKDIR /app
 RUN whoami && pwd
 #COPY /home/runner/work/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server/build/libs/*.jar .
