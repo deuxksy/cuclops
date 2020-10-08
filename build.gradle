@@ -4,11 +4,15 @@ plugins {
   id "idea"
   id 'org.springframework.boot' version '2.3.4.RELEASE'
   id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+  id "com.bmuschko.docker-spring-boot-application" version "6.6.1"
+  id "com.gorylenko.gradle-git-properties" version "2.2.3"
 }
 
 group = 'com.zzizily'
 version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '11'
+
+sourceCompatibility = JavaVersion.VERSION_11
+targetCompatibility = JavaVersion.VERSION_11
 
 repositories {
   mavenCentral()
@@ -22,6 +26,30 @@ ext {
 wrapper {
   gradleVersion = gradleVersion
   distributionType = Wrapper.DistributionType.BIN
+}
+
+gitProperties {
+  dateFormat = "yyyy-MM-dd HH:mm:ss"
+  dateFormatTimeZone = "Asia/Seoul"
+}
+
+docker {
+
+  springBootApplication {
+    baseImage = "openjdk:11.0.8-jre-slim"
+    maintainer = "SeokYoung.Kim 'deuxksy@gmail.com'"
+    ports = [8888]
+    images = [
+            project.group + "/" + applicationName + "/" + project.version,
+            project.group + "/" + applicationName + "/latest"
+    ]
+//    jvmArgs = []
+//    mainClassName = ""
+  }
+}
+
+springBoot {
+  buildInfo()
 }
 
 dependencies {
