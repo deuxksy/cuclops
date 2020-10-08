@@ -8,4 +8,3 @@ COPY build/docker/resources resources/
 COPY build/docker/classes classes/
 ENTRYPOINT ["java", "-cp", "/app/resources:/app/classes:/app/libs/*", "com.zzizily.mas.ZZiZiLYApplication"]
 EXPOSE 8888
-ㅎ
