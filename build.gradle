@@ -9,7 +9,7 @@ plugins {
 }
 
 group = 'com.zzizily'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.3-SNAPSHOT'
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
@@ -28,6 +28,18 @@ wrapper {
   distributionType = Wrapper.DistributionType.BIN
 }
 
+jar {
+  enabled = true
+  archiveVersion.set("latest")
+  manifest {
+    attributes(
+      "Implementation-Title": "${project.name}",
+      "Implementation-Version": "${project.version}"
+    )
+  }
+}
+
+
 gitProperties {
   dateFormat = "yyyy-MM-dd HH:mm:ss"
   dateFormatTimeZone = "Asia/Seoul"
@@ -35,7 +47,7 @@ gitProperties {
 
 docker {
   registryCredentials {
-    url = 'https://index.docker.io/v1/'
+//    url = 'https://index.docker.io/v1/'
     username = System.getenv("DOCKER_REPO_USERNAME")
     password = System.getenv("DOCKER_REPO_PASSWORD")
     email = System.getenv("EMAIL")
@@ -43,11 +55,11 @@ docker {
 
   springBootApplication {
     baseImage = "openjdk:11.0.8-jre-slim"
-    maintainer = "SeokYoung.Kim 'deuxksy@gmail.com'"
+    maintainer = "SeokYoung.Kim '"+System.getenv("EMAIL")+"'"
     ports = [8888]
     images = [
-      "cromksy/" + applicationName + ":" + project.version,
-      "cromksy/" + applicationName + ":latest"
+      "ghcr.io/"+System.getenv("DOCKER_REPO_USERNAME")+"/" + applicationName + ":" + project.version,
+      "ghcr.io/"+System.getenv("DOCKER_REPO_USERNAME")+"/" + applicationName + ":latest"
     ]
 //    jvmArgs = []
 //    mainClassName = ""

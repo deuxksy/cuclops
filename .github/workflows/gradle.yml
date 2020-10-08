@@ -23,11 +23,3 @@ jobs:
 
       - name: Build with Gradle
         run: ./gradlew build
-
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v1
-        with:
-          username: ${{ secrets.DOCKER_REPO_USERNAME }}
-          password: ${{ secrets.DOCKER_REPO_PASSWORD }}
-          repository: cromksy/zzizily-spring-cloud-config-server
-          tag_with_ref: true
