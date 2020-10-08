@@ -1,5 +1,6 @@
 FROM gradle:6.6.1-jre11
 LABEL maintainer="SeokYoung.Kim 'deuxksy@gmail.com'"
+RUN ["gradle", "--version"]
 WORKDIR /app
 RUN ["gradle", "classes"]
 COPY build/docker/libs libs/
