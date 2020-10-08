@@ -1,8 +1,7 @@
-FROM openjdk:11.0.8-jre-slim
+FROM gradle:6.6.1-jre11
 LABEL maintainer="SeokYoung.Kim 'deuxksy@gmail.com'"
 WORKDIR /app
-RUN ["ls", "-alh"]
-RUN ["gradlew", "classes"]
+RUN ["gradle", "classes"]
 COPY build/docker/libs libs/
 COPY build/docker/resources resources/
 COPY build/docker/classes classes/
