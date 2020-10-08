@@ -1,4 +1,4 @@
-package com.zzizily.config;
+package com.zzizily.mas;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableConfigServer
 @RestController
-public class ConfigApplication {
+public class ZZiZiLYApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(ConfigApplication.class, args);
+    SpringApplication.run(ZZiZiLYApplication.class, args);
   }
 
   @GetMapping("/")
