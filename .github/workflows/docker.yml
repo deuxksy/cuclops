@@ -1,12 +1,12 @@
 name: Publish Docker image
 
-#on:
-#  release:
-#    types: [published]
-
 on:
-  push:
-    branches: [ develop ]
+  release:
+    types: [published]
+
+#on:
+#  push:
+#    branches: [ develop ]
 
 jobs:
   build:
@@ -23,11 +23,15 @@ jobs:
       - name: Grant execute permission for gradlew
         run: chmod +x gradlew
 
-      - name: Push to Docker Hub
-        uses: docker/build-push-action@v2
+      - name: Login to Docker Repo
+        uses: docker/login-action@v1
         with:
           username: ${{ secrets.DOCKER_REPO_USERNAME }}
           password: ${{ secrets.DOCKER_REPO_PASSWORD }}
           registry: ghcr.io
-          repository: deuxksy/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server
-          tag_with_ref: true
+
+      - name: Push to Docker Repo
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: ghcr.io/deuxksy/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server
