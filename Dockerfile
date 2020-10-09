@@ -2,6 +2,7 @@ FROM openjdk:11.0.8-slim as BUILD
 WORKDIR /app
 
 COPY . /app/src
+RUN cd ./src
 RUN chmod +x ./gradlew
 RUN ./gradlew jar
 
