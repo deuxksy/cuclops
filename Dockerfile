@@ -10,9 +10,8 @@ RUN pwd && chmod +x gradlew
 RUN pwd && ls -alh
 RUN pwd && ./gradlew jar
 RUN pwd && ls -alh
-RUN pwd && ls -alh ./src
-RUN pwd && ls -alh ./src/build
-RUN pwd && ls -alh ./src/build/libs
+RUN pwd && ls -alh ./build
+RUN pwd && ls -alh ./build/libs
 #COPY /home/runner/work/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server/build/libs/*.jar .
 ENTRYPOINT ["java", "-jar", "/app/zzizily-spring-cloud-config-server-latest.jar"]
 EXPOSE 8888
