@@ -10,7 +10,7 @@ RUN pwd && cd /app/src
 RUN pwd && ls -alh
 RUN pwd && chmod +x gradlew
 RUN pwd && ls -alh
-RUN pwd && gradlew jar
+RUN pwd && ./gradlew jar
 RUN pwd && ls -alh /app/src/build
 RUN pwd && ls -alh /app/src/build/libs
 #COPY /home/runner/work/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server/build/libs/*.jar .
