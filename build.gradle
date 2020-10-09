@@ -28,7 +28,11 @@ wrapper {
   distributionType = Wrapper.DistributionType.BIN
 }
 
-jar {
+bootJar {
+  archiveVersion.set("latest")
+}
+
+/*jar {
   enabled = true
   archiveVersion.set("latest")
   manifest {
@@ -37,8 +41,7 @@ jar {
       "Implementation-Version": "${project.version}"
     )
   }
-}
-
+}*/
 
 /*gitProperties {
   dateFormat = "yyyy-MM-dd HH:mm:ss"
