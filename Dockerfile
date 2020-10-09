@@ -6,7 +6,7 @@ COPY . /app/temp
 RUN pwd && ls -alh && ls -alh ./temp
 RUN chmod +x ./temp/gradlew
 RUN pwd && ls -alh && ls -alh ./temp
-RUN ./temp/gradlew bootJar
+RUN pwd && cd ./temp && pwd && ./gradlew bootJar
 RUN pwd && ls -alh && ls -alh ./temp && ls -alh ./temp/build && ls -alh ./temp/build/libs
 RUN cp ./temp/build/libs/*.jar ./ZZiZiLY.jar
 RUN pwd && ls -alh
