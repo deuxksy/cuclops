@@ -5,7 +5,7 @@ plugins {
   id 'org.springframework.boot' version '2.3.4.RELEASE'
   id 'io.spring.dependency-management' version '1.0.10.RELEASE'
   id "com.bmuschko.docker-spring-boot-application" version "6.6.1"
-  id "com.gorylenko.gradle-git-properties" version "2.2.3"
+//  id "com.gorylenko.gradle-git-properties" version "2.2.3"
 }
 
 group = 'com.zzizily'
@@ -40,10 +40,10 @@ jar {
 }
 
 
-gitProperties {
+/*gitProperties {
   dateFormat = "yyyy-MM-dd HH:mm:ss"
   dateFormatTimeZone = "Asia/Seoul"
-}
+}*/
 
 docker {
   registryCredentials {
