@@ -1,4 +1,4 @@
-FROM gradle:6.6.1-jre11
+FROM openjdk:11.0.8-jre-slim
 WORKDIR /app
 COPY . /app
 
