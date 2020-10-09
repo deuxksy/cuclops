@@ -2,7 +2,9 @@ FROM gradle:6.6.1-jre11
 WORKDIR /app
 COPY . /app
 
-RUN gradle jar
+RUN whereis gradle
+RUN chmod +x gradlew
+RUN gradlew jar
 
 RUN ls -alh
 RUN ls -alh build
