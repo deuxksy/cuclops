@@ -1,12 +1,7 @@
 FROM gradle:6.6.1-jre11
-EXPOSE 8888
-
-RUN whoami && pwd
-RUN ls -alh
 WORKDIR /app
-RUN whoami && pwd
 COPY . /app
-RUN ls -alh /app
-#COPY /home/runner/work/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server/build/libs/*.jar .
+RUN gradlew jar
+COPY build/libs/*.jar .
 ENTRYPOINT ["java", "-jar", "/app/zzizily-spring-cloud-config-server-latest.jar"]
 EXPOSE 8888
