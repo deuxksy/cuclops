@@ -6,6 +6,9 @@ WORKDIR /app
 RUN whoami && pwd
 COPY . /app/src
 RUN ls -alh /app/src
+RUN cd /app/src
+RUN chmod +x gradlew
+RUN gradlew jar
 RUN ls -alh /app/src/build
 RUN ls -alh /app/src/build/libs
 #COPY /home/runner/work/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server/build/libs/*.jar .
