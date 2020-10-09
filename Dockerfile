@@ -1,12 +1,8 @@
-FROM gradle:6.6.1-jre11
-EXPOSE 8888
-
-RUN whoami && pwd
-RUN ls -alh
+FROM openjdk:11.0.8-jre-slim
 WORKDIR /app
-RUN whoami && pwd
 COPY . /app
-RUN ls -alh /app
-#COPY /home/runner/work/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server/build/libs/*.jar .
-ENTRYPOINT ["java", "-jar", "/app/zzizily-spring-cloud-config-server-latest.jar"]
+RUN chmod +x gradlew && ls -alh
+RUN gradlew jar && ls -alh && ls -alh build && ls -alh lib
+COPY build/libs/*.jar .
+ENTRYPOINT ["java", "-jar", "./zzizily-spring-cloud-config-server-latest.jar"]
 EXPOSE 8888
