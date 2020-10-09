@@ -13,7 +13,7 @@ jobs:
     name: Gradlew jar
     runs-on: ubuntu-latest
     steps:
-      - nameL: Source Checkout
+      - name: Source Checkout
         uses: actions/checkout@v2
 
 #      - name: Set up JDK 11
