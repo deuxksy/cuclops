@@ -4,7 +4,7 @@ RUN whoami && pwd
 RUN ls -alh
 WORKDIR /app
 RUN whoami && pwd
-COPY . /app/src
+COPY . /app
 RUN pwd && ls -alh
 RUN pwd && cd /app/src
 RUN pwd && ls -alh
