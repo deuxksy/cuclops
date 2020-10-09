@@ -1,11 +1,16 @@
-FROM openjdk:11.0.8-slim
-WORKDIR /app
-COPY . /app
+FROM openjdk:11.0.8-slim as BUILD
+COPY . /app/src
 RUN chmod +x ./gradlew
 RUN ./gradlew jar
+
+FROM openjdk:11.0.8-jre-slim
+EXPOSE 8888
+WORKDIR /app
+
 RUN ls -alh
 RUN ls -alh ./build
 RUN ls -alh ./build/libs
 #COPY ./build/libs/zzizily-spring-cloud-config-server-latest.jar .
-ENTRYPOINT ["java", "-jar", "./build/libs/zzizily-spring-cloud-config-server-latest.jar"]
-EXPOSE 8888
+
+ENTRYPOINT ["java", "-jar", "zzizily-spring-cloud-config-server-latest.jar"]
+COPY --from=BUILD /app/src/build/libs/*.jar /app/zzizily-spring-cloud-config-server-latest.jar
