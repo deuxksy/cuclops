@@ -7,7 +7,9 @@ RUN whoami && pwd
 COPY . /app/src
 RUN ls -alh /app/src
 RUN cd /app/src
+RUN ls -alh
 RUN chmod +x gradlew
+RUN ls -alh
 RUN gradlew jar
 RUN ls -alh /app/src/build
 RUN ls -alh /app/src/build/libs
