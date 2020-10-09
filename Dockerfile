@@ -1,4 +1,4 @@
-FROM openjdk:11.0.8-jre-slim
+FROM openjdk:11.0.8-slim
 WORKDIR /app
 COPY . /app
 RUN ls -alh
