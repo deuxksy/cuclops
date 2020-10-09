@@ -1,14 +1,14 @@
 name: Java CI with Gradle
 
-on:
-  release:
-    types: [published]
-
 #on:
-#  push:
-#    branches: [ develop ]
-#  pull_request:
-#    branches: [ develop ]
+#  release:
+#    types: [published]
+
+on:
+  push:
+    branches: [ develop ]
+  pull_request:
+    branches: [ develop ]
 
 jobs:
   build:
