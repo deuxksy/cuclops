@@ -6,7 +6,7 @@ name: Publish Docker image
 
 on:
   push:
-    branches: [ develop ]
+    branches: [ master ]
 
 jobs:
   build:
@@ -43,7 +43,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
 #          context: .
-#          file: ./Dockerfile
+          file: ./github.dockerfile
           push: true
           tags: ghcr.io/deuxksy/zzizily-spring-cloud-config-server:latest
 

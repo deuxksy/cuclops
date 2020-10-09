@@ -4,12 +4,12 @@ plugins {
   id "idea"
   id 'org.springframework.boot' version '2.3.4.RELEASE'
   id 'io.spring.dependency-management' version '1.0.10.RELEASE'
-  id "com.bmuschko.docker-spring-boot-application" version "6.6.1"
-  id "com.gorylenko.gradle-git-properties" version "2.2.3"
+//  id "com.bmuschko.docker-spring-boot-application" version "6.6.1"
+//  id "com.gorylenko.gradle-git-properties" version "2.2.3"
 }
 
 group = 'com.zzizily'
-version = '0.0.3-SNAPSHOT'
+version = '0.0.1-SNAPSHOT'
 
 sourceCompatibility = JavaVersion.VERSION_11
 targetCompatibility = JavaVersion.VERSION_11
@@ -28,7 +28,11 @@ wrapper {
   distributionType = Wrapper.DistributionType.BIN
 }
 
-jar {
+bootJar {
+  archiveVersion.set("latest")
+}
+
+/*jar {
   enabled = true
   archiveVersion.set("latest")
   manifest {
@@ -37,17 +41,16 @@ jar {
       "Implementation-Version": "${project.version}"
     )
   }
-}
+}*/
 
-
-gitProperties {
+/*gitProperties {
   dateFormat = "yyyy-MM-dd HH:mm:ss"
   dateFormatTimeZone = "Asia/Seoul"
-}
+}*/
 
-docker {
+/*docker {
   registryCredentials {
-//    url = 'https://index.docker.io/v1/'
+    url = 'https://index.docker.io/v1/'
     username = System.getenv("DOCKER_REPO_USERNAME")
     password = System.getenv("DOCKER_REPO_PASSWORD")
     email = System.getenv("EMAIL")
@@ -64,7 +67,7 @@ docker {
 //    jvmArgs = []
 //    mainClassName = ""
   }
-}
+}*/
 
 springBoot {
   buildInfo()

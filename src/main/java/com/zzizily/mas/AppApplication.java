@@ -9,10 +9,10 @@ import org.springframework.web.bind.annotation.RestController;
 @SpringBootApplication
 @EnableConfigServer
 @RestController
-public class ZZiZiLYApplication {
+public class AppApplication {
 
   public static void main(String[] args) {
-    SpringApplication.run(ZZiZiLYApplication.class, args);
+    SpringApplication.run(AppApplication.class, args);
   }
 
   @GetMapping("/")
