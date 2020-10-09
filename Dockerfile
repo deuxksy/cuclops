@@ -4,7 +4,7 @@ RUN whoami && pwd
 RUN ls -alh
 WORKDIR /app
 RUN whoami && pwd
-COPY . /app
+COPY . /app/src
 RUN ls -alh /app
 #COPY /home/runner/work/zzizily-spring-cloud-config-server/zzizily-spring-cloud-config-server/build/libs/*.jar .
 ENTRYPOINT ["java", "-jar", "/app/zzizily-spring-cloud-config-server-latest.jar"]
