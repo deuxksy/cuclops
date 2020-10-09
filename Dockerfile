@@ -5,8 +5,8 @@ FROM openjdk:11.0.8-slim as BUILD
 WORKDIR /app
 #RUN whoami && pwd
 COPY . /app
-#RUN pwd && ls -alh
-#RUN pwd && chmod +x gradlew
+RUN pwd && ls -alh
+RUN pwd && chmod +x gradlew
 RUN pwd && ls -alh
 RUN pwd && ./gradlew jar
 RUN pwd && ls -alh
