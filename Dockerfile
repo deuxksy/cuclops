@@ -1,4 +1,4 @@
-FROM gradle:6.6.1-jre11
+FROM openjdk:11.0.8-slim as BUILD
 
 RUN whoami && pwd
 RUN ls -alh
