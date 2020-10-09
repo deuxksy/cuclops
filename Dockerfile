@@ -1,11 +1,12 @@
 FROM openjdk:11.0.8-slim as BUILD
+WORKDIR /app
+
 COPY . /app/src
 RUN chmod +x ./gradlew
 RUN ./gradlew jar
 
 FROM openjdk:11.0.8-jre-slim
 EXPOSE 8888
-WORKDIR /app
 
 RUN ls -alh
 RUN ls -alh ./build
