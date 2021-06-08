@@ -18,7 +18,3 @@ http://localhost:8888/{application}/{profiles,...}/{label}
 h2 db 접속 하기  
 - http://localhost:8888/h2-console/
   - jdbc:h2:mem:testdb
-  
-## 3. Git (tag git)
-
-## 3.1. Redis
